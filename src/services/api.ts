@@ -1,8 +1,4 @@
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-}
+import { Product } from '../types';
 
 export const productApi = {
   fetchProducts: (): Promise<Response> => 
@@ -35,4 +31,9 @@ export const productApi = {
       method: 'DELETE',
       headers: { 'Accept': 'application/json' }
     })
+};
+
+export type ApiResponse<T> = {
+  data?: T;
+  error?: string;
 }; 

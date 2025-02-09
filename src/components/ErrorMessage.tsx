@@ -1,3 +1,5 @@
+import React from 'react';
+
 interface ErrorMessageProps {
   error: string | null;
   className?: string;

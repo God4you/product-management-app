@@ -35,6 +35,8 @@ const ProductList: React.FC = () => {
       if (response.ok) {
         setNewProduct({ name: '', price: '' as unknown as number });
         fetchProducts();
+      } else {
+        setError('Failed to create product');
       }
     } catch (error) {
       setError('Error creating product');
@@ -51,6 +53,8 @@ const ProductList: React.FC = () => {
       if (response.ok) {
         setEditingProduct(null);
         fetchProducts();
+      } else {
+        setError('Failed to update product');
       }
     } catch (error) {
       setError('Error updating product');
@@ -64,6 +68,8 @@ const ProductList: React.FC = () => {
         const response = await productApi.deleteProduct(id);
         if (response.ok) {
           fetchProducts();
+        } else {
+          setError('Failed to delete product');
         }
       } catch (error) {
         setError('Error deleting product');
